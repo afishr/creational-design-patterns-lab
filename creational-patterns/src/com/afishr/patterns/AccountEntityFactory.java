@@ -5,10 +5,8 @@ import com.afishr.entities.ActivityEntity;
 import com.afishr.entities.ActivityWindowEntity;
 import com.afishr.entities.MoneyEntity;
 
-import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+
 
 public class AccountEntityFactory {
 
