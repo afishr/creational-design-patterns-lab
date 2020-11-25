@@ -8,6 +8,7 @@ public class BitcoinAdapter extends MoneyEntity {
 
   public BitcoinAdapter(BitcoinEntity bitcoin) {
     super(bitcoin.calculateHashAmount());
+    this.bitcoin = bitcoin;
   }
 
   @Override

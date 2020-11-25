@@ -1,10 +1,10 @@
 package com.afishr.domain;
 
 public class BitcoinEntity {
-  private int hashAmount;
+  private int hashAmount = 0;
 
   public int calculateHashAmount() {
-    System.out.println("Making calculations...");
+    System.out.println("Making crypto calculations...");
     return hashAmount;
   }
 }

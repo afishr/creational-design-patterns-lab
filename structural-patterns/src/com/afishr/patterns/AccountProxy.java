@@ -5,15 +5,16 @@ import com.afishr.domain.ActivityWindowEntity;
 import com.afishr.domain.MoneyEntity;
 
 public class AccountProxy extends AccountEntity {
-  public AccountEntity account;
-  public AccountProxy(AccountEntity account, String id, MoneyEntity baseLineBalance, ActivityWindowEntity activityWindow) {
-    super(id, baseLineBalance, activityWindow);
+  AccountEntity account;
+
+  public AccountProxy(AccountEntity account) {
+    super(account.getId(), account.getBaseLineBalance(), account.getActivityWindow());
     this.account = account;
   }
 
   @Override
   public boolean withdraw(MoneyEntity money, String targetAccountId) {
     System.out.println("Making secret security checks here...");
-    return withdraw(money, targetAccountId);
+    return account.withdraw(money, targetAccountId);
   }
 }
