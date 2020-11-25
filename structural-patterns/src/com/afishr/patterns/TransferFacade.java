@@ -9,5 +9,5 @@ public class TransferFacade {
     sourceAccount.withdraw(MoneyEntity.of(amount), targetAccount.getId());
     targetAccount.deposit(MoneyEntity.of(amount), sourceAccount.getId());
   }
-  
+
 }
