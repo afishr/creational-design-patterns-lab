@@ -1,9 +1,10 @@
 package com.afishr;
 
 import com.afishr.domain.AccountEntity;
-import com.afishr.domain.ActivityEntity;
 import com.afishr.domain.ActivityWindowEntity;
 import com.afishr.domain.MoneyEntity;
+import com.afishr.patterns.command.SendMoneyCommand;
+import com.afishr.patterns.command.SendMoneyUseCase;
 
 import java.util.ArrayList;
 
@@ -39,8 +40,12 @@ public class Main {
   }
 
   public static void transferMoney(AccountEntity sourceAccount, AccountEntity targetAccount, Double amount) {
-    sourceAccount.withdraw(MoneyEntity.of(amount), targetAccount.getId());
-    targetAccount.deposit(MoneyEntity.of(amount), sourceAccount.getId());
+    SendMoneyUseCase executor = new SendMoneyUseCase();
+    executor.submit(new SendMoneyCommand(
+      sourceAccount,
+      targetAccount,
+      MoneyEntity.of(amount)
+    ));
   }
 
 }
